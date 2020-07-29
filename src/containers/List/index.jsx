@@ -9,7 +9,11 @@ class ListContainer extends React.Component {
 	requestListData = async () => {
 		const {store} = this.props
 
-		await store.list.requestData()
+		try {
+			await store.list.requestData()
+		} catch (error) {
+			alert('Произошла ошибка загрузки данных! Проверьте интернет.')
+		}
 	}
 
 	render () {
